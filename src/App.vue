@@ -1,17 +1,15 @@
 <template>
-<Test/>
+  <router-view />
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Test from './components/Test.vue' 
+import HelloWorld from "./components/HelloWorld.vue";
+import Test from "./components/Test.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
-    Test
+    Test,
   },
-  setup(props) {
-  }
-}
+  setup(props) {},
+};
 </script>
