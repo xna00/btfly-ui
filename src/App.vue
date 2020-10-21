@@ -1,13 +1,19 @@
 <template>
   <router-view />
 </template>
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts">
+import { provide, ref } from "vue";
+import { router } from "./router";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  components: {},
+  setup(props) {
+    const width = document.documentElement.clientWidth;
+    const menuVisible = ref(width > 500);
+    provide("menuVisible", menuVisible);
+    width <= 500 && router.afterEach(() => {
+       menuVisible.value = false;
+    });
   },
-  setup(props) {},
 };
 </script>
