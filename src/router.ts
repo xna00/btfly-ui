@@ -11,7 +11,6 @@ import { createWebHashHistory, createRouter } from 'vue-router'
 import { h } from 'vue'
 
 const md = (path) => {
-    console.log('md')
     return h(Markdown, {
         path,
         key:path

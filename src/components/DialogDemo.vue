@@ -1,104 +1,13 @@
 <template>
   <div>
-    <div>dialog1</div>
-    <div>dialog2</div>
-    <div>dialog3</div>
-    <div>dialog4</div>
-    <div>dialog5</div>
-    <div>dialog6</div>
-    <div>dialog7</div>
-    <div>dialog8</div>
-    <div>dialog9</div>
-    <div>dialog10</div>
-    <div>dialog11</div>
-    <div>dialog12</div>
-    <div>dialog13</div>
-    <div>dialog14</div>
-    <div>dialog15</div>
-    <div>dialog16</div>
-    <div>dialog17</div>
-    <div>dialog18</div>
-    <div>dialog19</div>
-    <div>dialog20</div>
-    <div>dialog21</div>
-    <div>dialog22</div>
-    <div>dialog23</div>
-    <div>dialog24</div>
-    <div>dialog25</div>
-    <div>dialog26</div>
-    <div>dialog27</div>
-    <div>dialog28</div>
-    <div>dialog29</div>
-    <div>dialog30</div>
-    <div>dialog31</div>
-    <div>dialog32</div>
-    <div>dialog33</div>
-    <div>dialog34</div>
-    <div>dialog35</div>
-    <div>dialog36</div>
-    <div>dialog37</div>
-    <div>dialog38</div>
-    <div>dialog39</div>
-    <div>dialog40</div>
-    <div>dialog41</div>
-    <div>dialog42</div>
-    <div>dialog43</div>
-    <div>dialog44</div>
-    <div>dialog45</div>
-    <div>dialog46</div>
-    <div>dialog47</div>
-    <div>dialog48</div>
-    <div>dialog49</div>
-    <div>dialog50</div>
-    <div>dialog51</div>
-    <div>dialog52</div>
-    <div>dialog53</div>
-    <div>dialog54</div>
-    <div>dialog55</div>
-    <div>dialog56</div>
-    <div>dialog57</div>
-    <div>dialog58</div>
-    <div>dialog59</div>
-    <div>dialog60</div>
-    <div>dialog61</div>
-    <div>dialog62</div>
-    <div>dialog63</div>
-    <div>dialog64</div>
-    <div>dialog65</div>
-    <div>dialog66</div>
-    <div>dialog67</div>
-    <div>dialog68</div>
-    <div>dialog69</div>
-    <div>dialog70</div>
-    <div>dialog71</div>
-    <div>dialog72</div>
-    <div>dialog73</div>
-    <div>dialog74</div>
-    <div>dialog75</div>
-    <div>dialog76</div>
-    <div>dialog77</div>
-    <div>dialog78</div>
-    <div>dialog79</div>
-    <div>dialog80</div>
-    <div>dialog81</div>
-    <div>dialog82</div>
-    <div>dialog83</div>
-    <div>dialog84</div>
-    <div>dialog85</div>
-    <div>dialog86</div>
-    <div>dialog87</div>
-    <div>dialog88</div>
-    <div>dialog89</div>
-    <div>dialog90</div>
-    <div>dialog91</div>
-    <div>dialog92</div>
-    <div>dialog93</div>
-    <div>dialog94</div>
-    <div>dialog95</div>
-    <div>dialog96</div>
-    <div>dialog97</div>
-    <div>dialog98</div>
-    <div>dialog99</div>
-    <div>dialog100</div>
+    <Demo :component="Dialog1" />
   </div>
 </template>
+<script lang="ts">
+import Dialog1 from "../demos/dialogs/Dialog1.vue";
+export default {
+  setup() {
+    return { Dialog1 };
+  },
+};
+</script>

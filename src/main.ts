@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 import Markdown from './components/Markdown.vue'
+import Demo from './components/Demo.vue'
 
 import './index.scss'
 import 'github-markdown-css'
@@ -12,3 +13,4 @@ const app = createApp(App)
 app.use(router)
 app.mount('#app')
 app.component('Markdown', Markdown)
+app.component('Demo', Demo)

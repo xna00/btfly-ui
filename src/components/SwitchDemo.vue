@@ -8,12 +8,7 @@
       <Switch v-model:on="switch2" size="normal" />
       <Switch v-model:on="switch3" size="large" />
     </div>
-    <article class="markdown-body">
-      <p>switch demo</p>
-      <pre><code>import Switch from './'</code></pre>
-      <code>int main() { int a = 0; printf() }</code>
-    </article>
-    <Markdown file="../markdown/intro.md" />
+
     <Demo :component="SwitchDemo1" />
   </div>
 </template>

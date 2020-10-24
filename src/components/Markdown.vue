@@ -5,11 +5,11 @@
 import { ref } from "vue";
 export default {
   props: {
-    file: String,
+    path: String,
   },
   setup(props) {
     const content = ref<string>(null);
-    import(props.file).then((result) => {
+    import(props.path).then((result) => {
       content.value = result.default;
     });
     return { content };
