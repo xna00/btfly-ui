@@ -1,5 +1,7 @@
 <template>
-  <button :class="{ on: on }" @click="toggle"><span></span></button>
+  <div class="btfly-switch">
+    <button :class="[{ on: on }, size]" @click="toggle"><span></span></button>
+  </div>
 </template>
 <script lang="ts">
 import { ref } from "vue";
@@ -7,7 +9,11 @@ export default {
   props: {
     on: {
       type: Boolean,
-      defult: false
+      default: false,
+    },
+    size: {
+      type: String,
+      default: "normal",
     },
   },
   setup(props, context) {
@@ -19,32 +25,45 @@ export default {
 };
 </script>
 <style lang="scss">
-button {
-  $h: 12px;
-  $h2: 16px;
-  height: $h;
-  width: $h * 2.3;
-  background: lightgray;
-  outline: none;
-  border: none;
-  border-radius: $h;
-  position: relative;
-  > span {
-    display: inline-block;
-    width: $h2;
-    height: $h2;
+.btfly-switch {
+  > button {
+    &.small {
+      font-size: 10px;
+    }
+    &.normal {
+      font-size: 15px;
+    }
+    &.large {
+      font-size: 20px;
+    }
+
+    height: 1.5em;
+    width: 3.5em;
+
     background: lightgray;
-    position: absolute;
-    border-radius: 50%;
-    top: ($h - $h2) / 2;
-    left: 0;
-    transition: all 250ms;
-  }
-  &.on {
-    background: red;
+    outline: none;
+    border: none;
+    border-radius: 0.75em;
+    position: relative;
+    cursor: pointer;
+    transition: all 250ms 100ms;
     > span {
+      display: inline-block;
+      width: 2em;
+      height: 2em;
+      background: lightgray;
+      position: absolute;
+      border-radius: 50%;
+      top: -0.25em;
+      left: 0;
+      transition: all 250ms;
+    }
+    &.on {
       background: red;
-      left: calc(100% - #{$h2});
+      > span {
+        background: red;
+        left: calc(100% - 2em);
+      }
     }
   }
 }
