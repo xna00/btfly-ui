@@ -6,9 +6,10 @@
       <component :is="component"></component>
     </div>
     <div class="demo-actions">
-      <button>show</button>
+      <Button v-if="!codeVisible" @click="codeVisibleToggle">显示代码</Button>
+      <Button v-else @click="codeVisibleToggle">隐藏代码</Button>
     </div>
-    <div class="demo-code">
+    <div class="demo-code" v-if="codeVisible">
       <pre v-html="html"></pre>
     </div>
   </div>
@@ -16,10 +17,14 @@
 <script lang="ts">
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
+
+import Button from "../lib/Button.vue";
+import { ref } from "vue";
 export default {
   props: {
     component: Object,
   },
+  components: { Button },
   setup(props) {
     const html = Prism.highlight(
       props.component.__sourceCode,
@@ -27,7 +32,11 @@ export default {
       "html"
     );
     const title = props.component.__sourceCodeTitle;
-    return { Prism, title, html };
+    const codeVisible = ref(true);
+    const codeVisibleToggle = () => {
+      codeVisible.value = !codeVisible.value;
+    };
+    return { Prism, title, html, codeVisible, codeVisibleToggle };
   },
 };
 </script>
@@ -58,10 +67,14 @@ $border-color: #d9d9d9;
   &-actions {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    * {
+      margin: auto 5px;
+    }
   }
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    overflow: auto;
     > pre {
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;

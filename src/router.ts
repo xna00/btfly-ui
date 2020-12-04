@@ -13,7 +13,7 @@ import { h } from 'vue'
 const md = (path) => {
     return h(Markdown, {
         path,
-        key:path
+        key: path
     })
 }
 

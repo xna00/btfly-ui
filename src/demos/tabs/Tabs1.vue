@@ -1,14 +1,23 @@
+<demo>
+Tabs示例
+</demo>
 <template>
-    <Tabs>
-        <Tab title="tab1">1########</Tab>
-        <Tab title="tab22222222222214356">2########</Tab>
-        <Tab title="tab3">3########</Tab>
-    </Tabs>
+  <Tabs v-model:selectedIndex="index">
+    <Tab title="Tab1">内容1</Tab>
+    <Tab title="Tab2">内容2</Tab>
+    <Tab title="Tab3">内容3</Tab>
+  </Tabs>
 </template>
 <script lang="ts">
-import Tab from '../../lib/Tab.vue'
-import Tabs from '../../lib/Tabs.vue'
+import Tab from "../../lib/Tab.vue";
+import Tabs from "../../lib/Tabs.vue";
 export default {
-components:{Tab, Tabs}
-}
+  data() {
+    return {
+      index: 0,
+    };
+  },
+  components: { Tab, Tabs },
+  
+};
 </script>

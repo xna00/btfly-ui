@@ -23,31 +23,38 @@ import Tab from "./Tab.vue";
 import { computed, onBeforeUpdate, onMounted, ref, watchEffect } from "vue";
 
 export default {
+  props: {
+    selectedIndex: {
+      type: Number,
+      default: 0,
+    },
+  },
   setup(props, context) {
     console.log(context.slots.default());
     const tabs = context.slots.default();
     const titles = tabs.map((tab) => tab.props.title);
     const current = ref(tabs[0]);
-    const selectedIndex = ref(0);
+    // const selectedIndex = ref(0);
     const selectedTab = computed(() => {
-      console.log(selectedIndex.value);
-      return tabs[selectedIndex.value];
+    //   console.log(selectedIndex.value);
+      return tabs[props.selectedIndex];
     });
     let navElements = [];
     const setEl = (el) => {
       navElements.push(el);
     };
     const select = (i) => {
-      selectedIndex.value = i;
+        context.emit('update:selectedIndex', i)
+    //   selectedIndex.value = i;
     };
     const indicator = ref<HTMLDivElement>(null);
     onMounted(() => {
       watchEffect(() => {
         indicator.value.style.width =
-          navElements[selectedIndex.value].clientWidth + "px";
+          navElements[props.selectedIndex].clientWidth + "px";
         const { left: left1 } = container.value.getBoundingClientRect();
         const { left: left2 } = navElements[
-          selectedIndex.value
+          props.selectedIndex
         ].getBoundingClientRect();
         const left = left2 - left1;
         indicator.value.style.left = left + "px";
@@ -64,7 +71,7 @@ export default {
       current,
       select,
       indicator,
-      selectedIndex,
+    //   selectedIndex,
       selectedTab,
       navElements,
       setEl,
@@ -103,7 +110,6 @@ $border-color: #d9d9d9;
       background: $blue;
       left: 0;
       bottom: -1px;
-      width: 100px;
       transition: all 250ms;
     }
   }

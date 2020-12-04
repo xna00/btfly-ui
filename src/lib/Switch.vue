@@ -1,10 +1,12 @@
 <template>
   <div class="btfly-switch">
-    <button :class="[{ on: on }, size]" @click="toggle"><span></span></button>
+    <button :class="[{ on: on }, size]" @click="toggle">
+      <span ref="span"></span>
+    </button>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 export default {
   props: {
     on: {
@@ -20,7 +22,23 @@ export default {
     const toggle = () => {
       context.emit("update:on", !props.on);
     };
-    return { toggle };
+    const span = ref<HTMLSpanElement>(null);
+    onMounted(() => {
+      console.log(span.value);
+      let downState = false
+      const down = ()=>{
+
+      }
+      span.value.addEventListener("mousedown", () => {
+        console.log("mousedown");
+       console.dir({...arguments});
+        
+      });
+      span.value.addEventListener("touchstart", () => {
+        console.log("touchstart");
+      });
+    });
+    return { toggle, span };
   },
 };
 </script>

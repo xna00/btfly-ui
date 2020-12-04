@@ -78,7 +78,7 @@ $aside-index: 10;
   }
 }
 aside {
-  background: lightblue;
+  background: white;
   width: 150px;
   padding: 16px 0;
   position: fixed;
@@ -86,6 +86,7 @@ aside {
   left: 0;
   padding-top: 70px;
   height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
   z-index: $aside-index;
   > h2 {
     margin-bottom: 4px;
