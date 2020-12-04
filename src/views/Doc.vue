@@ -2,32 +2,34 @@
   <div class="layout">
     <Topnav />
     <div class="content">
-      <aside v-if="menuVisible">
-        <h2>文档</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/intro">介绍</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/install">安装</router-link>
-          </li>
-        </ol>
-        <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-        </ol>
-      </aside>
+      <transition name="aside">
+        <aside v-if="menuVisible">
+          <h2>文档</h2>
+          <ol>
+            <li>
+              <router-link to="/doc/intro">介绍</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/install">安装</router-link>
+            </li>
+          </ol>
+          <h2>组件列表</h2>
+          <ol>
+            <li>
+              <router-link to="/doc/switch">Switch 组件</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/button">Button 组件</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/dialog">Dialog 组件</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/tabs">Tabs 组件</router-link>
+            </li>
+          </ol>
+        </aside>
+      </transition>
       <main>
         <router-view></router-view>
       </main>
@@ -50,6 +52,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 $aside-index: 10;
+.aside-enter-active, .aside-leave-active {
+  transition: transform .25s ease;
+}
+
+.aside-enter-from, .aside-leave-to {
+  // opacity: 0;
+  transform: translateX(-150px);
+}
 .layout {
   display: flex;
   flex-direction: column;
@@ -98,9 +108,16 @@ aside {
         display: block;
         padding: 4px 16px;
         text-decoration: none;
+        border-radius: 2px;
+        background: white;
+        transition: all 0.75s;
+        &:active {
+          background: #f6f6f6;
+        }
       }
       .router-link-active {
-        background: white;
+        background: #c6f1bd;
+        color: green;
       }
     }
   }

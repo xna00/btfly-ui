@@ -1,6 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="toggleAside" @click="toggleMenu" v-if="menuIconVisible"></div>
+    <div class="toggleAside" @click="toggleMenu" v-if="menuIconVisible">
+     <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-menu1"></use>
+      </svg> 
+    </div>
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-gbtfly-fill"></use>
@@ -33,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 $color: #007974;
 .topnav {
-  color: $color;
+  // color: $color;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -42,9 +46,9 @@ $color: #007974;
   width: 100%;
   z-index: 20;
   @media (max-width: 500px) {
-    justify-content: center;
+    justify-content: flex-end;
   }
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
   background: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
@@ -59,6 +63,7 @@ $color: #007974;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color: $color;
     > li {
       font-size: 1.3em;
       margin: 0 1em;
@@ -67,12 +72,16 @@ $color: #007974;
   > .toggleAside {
     width: 32px;
     height: 32px;
+    > svg {
+      width: 32px;
+      height: 32px;
+    }
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
+    // background: fade-out(black, 0.9);
   }
   @media (max-width: 500px) {
     > .menu {
