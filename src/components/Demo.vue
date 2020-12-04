@@ -63,6 +63,7 @@ $border-color: #d9d9d9;
   }
   &-component {
     padding: 16px;
+    overflow: auto;
   }
   &-actions {
     padding: 8px 16px;
