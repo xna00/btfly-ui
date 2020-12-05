@@ -13,7 +13,7 @@ export default {
     name: 'btfly',
     file: 'dist/lib/btfly.js',
     format: 'umd',
-    plugins: [terser()]
+    plugins: []
   }, {
     name: 'btfly',
     file: 'dist/lib/btfly.esm.js',
