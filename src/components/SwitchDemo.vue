@@ -1,6 +1,3 @@
-<demo>
-123456
-</demo>
 <template>
   <div>
     <Demo :component="SwitchDemo1" />
