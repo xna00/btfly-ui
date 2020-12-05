@@ -1,13 +1,12 @@
 <template>
   <div class="demo">
-    <Button @click="click" theme="text" class="copy">复制</Button></Button>
+    <Button theme="text" class="copy">复制</Button>
     <h2>{{ title }}</h2>
     <div class="demo-component">
       <component :is="component"></component>
     </div>
     <div class="demo-actions">
-      <Button v-if="!codeVisible" @click="codeVisibleToggle">显示代码</Button>
-      <Button v-else @click="codeVisibleToggle">隐藏代码</Button>
+      <Button @click="codeVisibleToggle">{{!codeVisible ? '显示代码': '隐藏代码'}}</Button>
     </div>
     <transition name="demo-code">
       <div class="demo-code" v-if="codeVisible">
