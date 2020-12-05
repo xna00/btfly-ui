@@ -5,14 +5,7 @@
 import { ref } from "vue";
 export default {
   props: {
-    path: String,
-  },
-  setup(props) {
-    const content = ref<string>(null);
-    import(props.path).then((result) => {
-      content.value = result.default;
-    });
-    return { content };
+    content: String,
   },
 };
 </script>
