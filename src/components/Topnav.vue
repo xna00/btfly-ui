@@ -1,9 +1,9 @@
 <template>
   <div class="topnav">
     <div class="toggleAside" @click="toggleMenu" v-if="menuIconVisible">
-     <svg class="icon" aria-hidden="true">
+      <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-menu1"></use>
-      </svg> 
+      </svg>
     </div>
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
@@ -11,7 +11,9 @@
       </svg>
     </router-link>
     <ul class="menu">
-      <li>文档</li>
+      <router-link to="/doc">
+        <li>文档</li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -35,7 +37,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$color: #007974;
+$color: #76a477;
 .topnav {
   // color: $color;
   display: flex;
@@ -44,7 +46,7 @@ $color: #007974;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 11;
   @media (max-width: 500px) {
     justify-content: flex-end;
   }
@@ -64,7 +66,7 @@ $color: #007974;
     white-space: nowrap;
     flex-wrap: nowrap;
     color: $color;
-    > li {
+     li {
       font-size: 1.3em;
       margin: 0 1em;
     }

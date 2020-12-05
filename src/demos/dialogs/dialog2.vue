@@ -1,5 +1,5 @@
 <demo>
-dialog2
+用openDialog打开对话框
 </demo>
 <template>
   <Button @click="open">打开</Button>
@@ -12,8 +12,8 @@ export default {
   setup() {
     const open = () => {
       openDialog({
-        title: "hello",
-        content: "I am content",
+        title: "你好",
+        content: "我是内容",
         ok() {},
         cancel() {},
       });

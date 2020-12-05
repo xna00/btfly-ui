@@ -25,14 +25,11 @@ export default {
     const span = ref<HTMLSpanElement>(null);
     onMounted(() => {
       console.log(span.value);
-      let downState = false
-      const down = ()=>{
-
-      }
+      let downState = false;
+      const down = () => {};
       span.value.addEventListener("mousedown", () => {
         console.log("mousedown");
-       console.dir({...arguments});
-        
+        console.dir({ ...arguments });
       });
       span.value.addEventListener("touchstart", () => {
         console.log("touchstart");
@@ -43,7 +40,10 @@ export default {
 };
 </script>
 <style lang="scss">
+$bg-color: #76a477;
 .btfly-switch {
+  display: inline-block;
+  margin: 3px;
   > button {
     &.small {
       font-size: 10px;
@@ -77,9 +77,9 @@ export default {
       transition: all 250ms;
     }
     &.on {
-      background: red;
+      background: $bg-color;
       > span {
-        background: red;
+        background: $bg-color;
         left: calc(100% - 2em);
       }
     }

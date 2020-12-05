@@ -1,2 +1,2 @@
 # 安装
-`npm i butterfly-ui`
+`npm i btfly-ui`

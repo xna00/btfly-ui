@@ -12,6 +12,9 @@
             <li>
               <router-link to="/doc/install">安装</router-link>
             </li>
+            <li>
+              <router-link to="/doc/start">开始</router-link>
+            </li>
           </ol>
           <h2>组件列表</h2>
           <ol>
@@ -57,20 +60,23 @@ $aside-index: 10;
 }
 
 .aside-enter-from, .aside-leave-to {
-  // opacity: 0;
   transform: translateX(-150px);
 }
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-weight: 400;
+  * {
+    font-weight: inherit;
+  }
   > .nav {
     flex-shrink: 0;
   }
   > .content {
     flex-grow: 1;
     padding-top: 60px;
-    padding-left: 156px;
+    padding-left: 256px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
@@ -89,7 +95,7 @@ $aside-index: 10;
 }
 aside {
   background: white;
-  width: 150px;
+  width: 250px;
   padding: 16px 0;
   position: fixed;
   top: 0;

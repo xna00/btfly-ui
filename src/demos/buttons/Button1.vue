@@ -3,8 +3,8 @@
 </demo>
 <template>
 <div class="button1">
-  <Button @click="click" theme="button">按钮0000000000000000000000000000000000000</Button>
-  <Button @click="click" :indictorVisible="true" theme="button">按钮</Button>
+  <Button @click="click" theme="button">按钮</Button>
+  <Button @click="click" :indictorVisible="true" theme="button">加载中</Button>
   <Button @click="click" theme="text">按钮</Button>
 </div>
 </template>

@@ -140,7 +140,10 @@ export default {
   }
 }
 .feature-wraper-outside {
-  min-height: calc(100vh - 455px);
+  min-height: calc(100vh - 519px);
+  @media (max-width: 1280px) {
+    min-height: calc(100vh - 458px);
+  }
   background: rgb(247, 247, 247);
   padding: 96px 0 0;
   @media (max-width: 500px) {

@@ -1,11 +1,9 @@
 <template>
   <div class="demo">
-    <Button
-      @click="copy"
-      theme="text"
-      :class="['copy-button', { 'copy-succed': copySucced }]"
-      >复制代码</Button
-    >
+    <div :class="['copy-succed-text', { 'copy-succed': copySucced }]">
+      复制成功
+    </div>
+    <Button @click="copy" theme="text" class="copy-button">复制代码</Button>
     <h2>{{ title }}</h2>
     <div class="demo-component">
       <component :is="component"></component>
@@ -72,6 +70,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
+$theme-color: #76a477;
 .demo-code-enter-active,
 .demo-code-leave-active {
   transition: all 0.2s linear;
@@ -94,25 +93,25 @@ $border-color: #d9d9d9;
   margin: 16px 0 32px;
   border-radius: 3px;
   position: relative;
+  > .copy-succed-text {
+    color: $theme-color;
+    position: absolute;
+    right: 90px;
+    top: 30px;
+    font-size: 13.333px;
+    opacity: 0;
+    cursor: auto;
+    &.copy-succed {
+      top: 7px;
+      opacity: 1;
+      transition: all 250ms;
+    }
+  }
   > .copy-button {
     position: absolute;
     top: 3px;
     right: 3px;
     cursor: pointer;
-    &::before {
-      content: "复制成功";
-      // border: 1px solid red;
-      position: absolute;
-      right: 90px;
-      top: 30px;
-      opacity: 0;
-      // transition: opacity 250ms;
-    }
-    &.copy-succed::before {
-      top: 3px;
-      opacity: 1;
-      transition: all 250ms;
-    }
   }
   > h2 {
     font-size: 20px;

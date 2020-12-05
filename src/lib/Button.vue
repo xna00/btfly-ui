@@ -19,6 +19,7 @@ export default {
 };
 </script>
 <style lang="scss">
+$theme-color: #76a477;
 .btfly-button {
   display: inline-flex;
   align-items: center;
@@ -38,13 +39,13 @@ export default {
     border-radius: 1.2em;
     background: whitesmoke;
     &:hover {
-      border-color:lightskyblue ;
-      color: lightskyblue;
+      border-color:$theme-color ;
+      // color: $theme-color;
     }
   }
   &-text {
     background: transparent;
-    color: red;
+    color: $theme-color;
     &:hover {
       background: whitesmoke;
     }
@@ -54,7 +55,7 @@ export default {
     width: 1.2em;
     height: 1.2em;
     border: 2px solid;
-    border-color: lightskyblue lightskyblue lightskyblue transparent;
+    border-color: $theme-color $theme-color $theme-color transparent;
     border-radius: 50%;
     margin-right: 6px;
     animation: btfly-button-indictor-spin 1s infinite linear;

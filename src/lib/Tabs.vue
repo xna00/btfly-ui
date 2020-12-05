@@ -84,6 +84,7 @@ export default {
 };
 </script>
 <style lang="scss">
+$theme-color: #76a477;
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
@@ -101,13 +102,13 @@ $border-color: #d9d9d9;
         margin-left: 0;
       }
       &.selected {
-        color: $blue;
+        color: $theme-color;
       }
     }
     &-indicator {
       position: absolute;
       height: 3px;
-      background: $blue;
+      background: $theme-color;
       left: 0;
       bottom: -1px;
       transition: all 250ms;

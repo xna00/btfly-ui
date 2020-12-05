@@ -1,14 +1,14 @@
 <demo>
-dialog1
+对话框
 </demo>
 <template>
   <Button @click="show">显示</Button>
   <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
     <template v-slot:title>
-      <strong >124</strong>
+      <strong >你好</strong>
     </template>
     <template v-slot:content>
-      <Button>1234214242343241</Button>
+      我是内容
     </template>
   </Dialog>
 </template>
