@@ -1,12 +1,19 @@
 <template>
   <div class="demo">
-    <Button theme="text" class="copy">复制</Button>
+    <Button
+      @click="copy"
+      theme="text"
+      :class="['copy-button', { 'copy-succed': copySucced }]"
+      >复制代码</Button
+    >
     <h2>{{ title }}</h2>
     <div class="demo-component">
       <component :is="component"></component>
     </div>
     <div class="demo-actions">
-      <Button @click="codeVisibleToggle">{{!codeVisible ? '显示代码': '隐藏代码'}}</Button>
+      <Button @click="codeVisibleToggle">{{
+        !codeVisible ? "显示代码" : "隐藏代码"
+      }}</Button>
     </div>
     <transition name="demo-code">
       <div class="demo-code" v-if="codeVisible">
@@ -18,7 +25,7 @@
 <script lang="ts">
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import "../index.scss"
+import "../index.scss";
 
 import Button from "../lib/Button.vue";
 import { ref } from "vue";
@@ -38,24 +45,48 @@ export default {
     const codeVisibleToggle = () => {
       codeVisible.value = !codeVisible.value;
     };
-    return { Prism, title, html, codeVisible, codeVisibleToggle };
+    const copySucced = ref(false);
+    const copy = () => {
+      const input = document.createElement("input");
+      input.value = props.component.__sourceCode;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+      copySucced.value = true;
+      setTimeout(() => {
+        copySucced.value = false;
+      }, 500);
+    };
+    return {
+      Prism,
+      title,
+      html,
+      codeVisible,
+      codeVisibleToggle,
+      copy,
+      copySucced,
+    };
   },
 };
 </script>
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
-.demo-code-enter-active, .demo-code-leave-active {
-  transition: all .2s linear;
+.demo-code-enter-active,
+.demo-code-leave-active {
+  transition: all 0.2s linear;
   // padding: 0;
 }
 
-.demo-code-enter-from, .demo-code-leave-to {
+.demo-code-enter-from,
+.demo-code-leave-to {
   // opacity: 0;
   // transform: translateX(-150px);
   height: 0;
   // padding: 0;
 }
-.demo-code-enter-to, .demo-code-leave-from {
+.demo-code-enter-to,
+.demo-code-leave-from {
   height: 300px;
 }
 .demo {
@@ -63,13 +94,24 @@ $border-color: #d9d9d9;
   margin: 16px 0 32px;
   border-radius: 3px;
   position: relative;
-  > .copy {
+  > .copy-button {
     position: absolute;
     top: 3px;
     right: 3px;
-    &:hover {
+    cursor: pointer;
+    &::before {
+      content: "复制成功";
       // border: 1px solid red;
-      cursor: pointer;
+      position: absolute;
+      right: 90px;
+      top: 30px;
+      opacity: 0;
+      // transition: opacity 250ms;
+    }
+    &.copy-succed::before {
+      top: 3px;
+      opacity: 1;
+      transition: all 250ms;
     }
   }
   > h2 {

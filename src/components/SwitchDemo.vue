@@ -3,12 +3,6 @@
 </demo>
 <template>
   <div>
-    <div class="wrapper">
-      <Switch v-model:on="switch1" size="small" />
-      <Switch v-model:on="switch2" size="normal" />
-      <Switch v-model:on="switch3" size="large" />
-    </div>
-
     <Demo :component="SwitchDemo1" />
   </div>
 </template>
