@@ -40,6 +40,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "base.scss";
 $bg-color: #76a477;
 .btfly-switch {
   display: inline-block;
