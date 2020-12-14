@@ -60,7 +60,7 @@ $aside-index: 10;
 }
 
 .aside-enter-from, .aside-leave-to {
-  transform: translateX(-150px);
+  transform: translateX(-250px);
 }
 .layout {
   display: flex;
