@@ -1,9 +1,16 @@
 <template>
   <div class="topnav">
-    <div class="toggleAside" @click="toggleMenu" v-if="menuIconVisible">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-menu1"></use>
-      </svg>
+    <div
+      class="toggleAside"
+      @click="toggleMenu"
+      v-if="menuIconVisible"
+      :class="{ 'icon-close': menuVisible }"
+    >
+      <button>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
@@ -39,7 +46,6 @@ export default {
 <style lang="scss" scoped>
 $color: #76a477;
 .topnav {
-  // color: $color;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -66,7 +72,7 @@ $color: #76a477;
     white-space: nowrap;
     flex-wrap: nowrap;
     color: $color;
-     li {
+    li {
       font-size: 1.3em;
       margin: 0 1em;
     }
@@ -74,16 +80,44 @@ $color: #76a477;
   > .toggleAside {
     width: 32px;
     height: 32px;
-    > svg {
-      width: 32px;
-      height: 32px;
-    }
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    // background: fade-out(black, 0.9);
+    > button {
+      width: 23px;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0);
+      outline: none;
+      border: none;
+      > span {
+        display: block;
+        width: 100%;
+        height: 0;
+        margin-top: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid transparent;
+        background: $color;
+        border-radius: 1px;
+        transform-origin: left center;
+        transition: all 0.3s ease;
+      }
+    }
+    &.icon-close {
+      span:nth-child(1) {
+        transform: rotateZ(45deg);
+        width: 19.8px;
+      }
+      span:nth-child(2) {
+        background: transparent;
+      }
+      span:nth-child(3) {
+        transform: rotateZ(-45deg);
+        width: 19.8px;
+      }
+    }
   }
   @media (max-width: 500px) {
     > .menu {
