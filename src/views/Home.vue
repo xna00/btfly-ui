@@ -36,7 +36,7 @@
             </svg>
           </div>
           <div class="feature-title">基于TypeScript</div>
-          <div class="feature-subtitle">源码使TypeScript书写</div>
+          <div class="feature-subtitle">源码使用TypeScript书写</div>
         </div>
         <div class="feature">
           <div class="feature-icon">

@@ -4,11 +4,11 @@ import SwitchDemo from './components/SwitchDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
-import Start from './components/Start.vue'
 import Markdown from './components/Markdown.vue'
 
 import intro from './markdown/intro.md'
 import install from './markdown/install.md'
+import start from './markdown/start.md'
 
 import { createWebHashHistory, createRouter } from 'vue-router'
 import { h } from 'vue'
@@ -31,7 +31,7 @@ export const router = createRouter({
                 { path: '', redirect: '/doc/intro' },
                 { path: 'intro', component: md(intro) },
                 { path: 'install', component: md(install) },
-                { path: 'start', component: Start },
+                { path: 'start', component: md(start) },
                 { path: 'switch', component: SwitchDemo },
                 { path: 'button', component: ButtonDemo },
                 { path: 'dialog', component: DialogDemo },

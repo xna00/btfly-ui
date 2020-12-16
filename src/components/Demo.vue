@@ -102,6 +102,7 @@ $theme-color: #76a477;
     right: 6px;
     width: 25px;
     height: 25px;
+    cursor: pointer;
     &.code-visible {
       color: $theme-color;
     }
