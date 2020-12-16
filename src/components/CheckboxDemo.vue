@@ -1,16 +1,18 @@
 <template>
-  <Checkbox v-model:checked="checked">
-      </Checkbox> 
-  {{ checked }}
+  <div>
+    <Demo :component="Checkbox1" />
+  </div>
 </template>
+
 <script lang="ts">
-import Checkbox from "../lib/Checkbox.vue";
+import Demo from "./Demo.vue";
+import Checkbox1 from "../demos/checkbox/Checkbox1.vue";
 export default {
-  components: { Checkbox },
-  data() {
-    return {
-      checked: false,
-    };
+  components: { Demo },
+  setup() {
+    return { Checkbox1 };
   },
 };
 </script>
+<style lang="scss">
+</style>
