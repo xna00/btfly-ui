@@ -3,7 +3,7 @@
 </demo>
 <template>
   <Checkbox v-model:checked="checked">点我</Checkbox>
-  <br>
+  <br />
   checked:{{ checked }}
 </template>
 <script lang="ts">
