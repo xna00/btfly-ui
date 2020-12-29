@@ -55,41 +55,34 @@ export default {
         props.indicatorRadius * 2 + "px";
       processElement.value.style.width = indicator.value.style.left =
         bar.value.getClientRects()[0].width * props.process + "px";
-      indicator.value.addEventListener("mousedown", () => {
-        active = true;
-      });
-      document.addEventListener("mousemove", (e) => {
-        if (active) {
-          let left = e.x - bar.value.getClientRects()[0].left;
-          left < 0 && (left = 0);
-          left > bar.value.getClientRects()[0].width &&
-            (left = bar.value.getClientRects()[0].width);
-          indicator.value.style.left = left + "px";
-          processElement.value.style.width = left + "px";
-          context.emit(
-            "update:process",
-            parseFloat((left / bar.value.getClientRects()[0].width).toFixed(3))
-          );
-        }
-      });
-      document.addEventListener("mouseup", (e) => {
-        active === true && (active = false);
-      });
-      bar.value.addEventListener("click", (e) => {
-        indicator.value.style.left =
-          e.x - bar.value.getClientRects()[0].left + "px";
-        processElement.value.style.width =
-          e.x - bar.value.getClientRects()[0].left + "px";
+      let barRect = bar.value.getClientRects()[0];
+      const setLeftAndWidth = (left) => {
+        indicator.value.style.left = left + "px";
+        processElement.value.style.width = left + "px";
         context.emit(
           "update:process",
-          parseFloat(
-            (
-              (e.x - bar.value.getClientRects()[0].left) /
-              bar.value.getClientRects()[0].width
-            ).toFixed(3)
-          )
+          parseFloat((left / barRect.width).toFixed(3))
         );
+      };
+      indicator.value.addEventListener("mousedown", () => (active = true));
+      const moveHandler = (x) => {
+        let left = x - barRect.left;
+        left < 0 && (left = 0);
+        left > barRect.width && (left = barRect.width);
+        setLeftAndWidth(left);
+      };
+      document.addEventListener("mousemove", (e) => {
+        if (!active) return;
+        moveHandler(e.clientX);
       });
+      indicator.value.addEventListener("touchmove", (e) =>
+        moveHandler(e.touches[0].clientX)
+      );
+
+      document.addEventListener("mouseup", (e) => (active = false));
+      bar.value.addEventListener("click", (e) =>
+        setLeftAndWidth(e.clientX - barRect.left)
+      );
     });
     return { bar, indicator, processElement };
   },
