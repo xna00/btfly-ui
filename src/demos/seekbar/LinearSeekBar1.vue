@@ -6,7 +6,7 @@
     backgroundColor="black"
     color="red"
     :barHeight="4"
-    :barWidth="600"
+    :barWidth="300"
     :indicatorRadius="5"
     indicatiorColor="green"
     v-model:process="process"
