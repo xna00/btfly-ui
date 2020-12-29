@@ -22,6 +22,7 @@
       fill="transparent"
       :stroke-width="width"
       :transform="rotate"
+      pointer-events="stroke"
       ref="c3"
     />
     <circle
@@ -107,7 +108,6 @@ export default {
       c3.value.addEventListener("click", (e) =>
         moveHandler(e.clientX, e.clientY)
       );
-      // c1.value.addEventListener("touchstart", (e) => console.log(e));
       setTheta(Math.PI / 2 - props.process * Math.PI * 2);
       c2.value.addEventListener("mousedown", (e) => {
         active = true;
