@@ -8,7 +8,7 @@
     backgroundColor="green"
     color="orange"
     indicatiorColor="grey"
-    :width="2"
+    :width="5"
     v-model:process="process"
   />
   <div>process:{{ process }}</div>

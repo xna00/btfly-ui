@@ -11,6 +11,8 @@
       :stroke="backgroundColor"
       fill="transparent"
       :stroke-width="width"
+      pointer-events="stroke"
+      ref="c1"
     />
     <circle
       cx="50%"
@@ -66,6 +68,7 @@ export default {
   },
   setup(props, context) {
     const svg = ref<SVGElement>(null);
+    const c1 = ref<SVGCircleElement>(null);
     const c2 = ref<SVGCircleElement>(null);
     const c3 = ref<SVGCircleElement>(null);
     const rotate = ref<String>("");
@@ -97,6 +100,14 @@ export default {
       );
     };
     onMounted(() => {
+      const clickHandler = () => {};
+      c1.value.addEventListener("click", (e) =>
+        moveHandler(e.clientX, e.clientY)
+      );
+      c3.value.addEventListener("click", (e) =>
+        moveHandler(e.clientX, e.clientY)
+      );
+      // c1.value.addEventListener("touchstart", (e) => console.log(e));
       setTheta(Math.PI / 2 - props.process * Math.PI * 2);
       c2.value.addEventListener("mousedown", (e) => {
         active = true;
@@ -131,7 +142,7 @@ export default {
       });
     });
 
-    return { svg, c2, c3, rotate };
+    return { svg, c1, c2, c3, rotate };
   },
 };
 </script>
