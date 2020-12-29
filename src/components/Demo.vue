@@ -37,6 +37,10 @@ import { ref } from "vue";
 export default {
   props: {
     component: Object,
+    showCode: {
+      type: Boolean,
+      default: true,
+    },
   },
   components: { Button },
   setup(props) {
@@ -46,7 +50,7 @@ export default {
       "html"
     );
     const title = props.component.__sourceCodeTitle;
-    const codeVisible = ref(true);
+    const codeVisible = props.showCode ? ref(true) : ref(false);
     const codeVisibleToggle = () => {
       codeVisible.value = !codeVisible.value;
     };
