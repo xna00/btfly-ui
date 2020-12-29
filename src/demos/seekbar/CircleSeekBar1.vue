@@ -3,8 +3,8 @@
 </demo>
 <template>
   <CircleSeekBar
-    :barRadius="50"
-    :indicatorRadius="5"
+    :barRadius="80"
+    :indicatorRadius="10"
     backgroundColor="green"
     color="orange"
     indicatiorColor="grey"
