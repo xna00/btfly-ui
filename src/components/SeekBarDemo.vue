@@ -1,6 +1,6 @@
 <template>
-  <Demo :component="CircleSeekBar1" />
-  <Demo :component="LinearSeekBar1" />
+  <Demo :component="CircleSeekBar1" :showCode="false" />
+  <Demo :component="LinearSeekBar1" :showCode="false" />
 </template>
 <script lang="ts">
 import CircleSeekBar1 from "../demos/seekbar/CircleSeekBar1.vue";
