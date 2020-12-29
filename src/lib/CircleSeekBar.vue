@@ -101,12 +101,13 @@ export default {
       );
     };
     onMounted(() => {
-      const clickHandler = () => {};
-      c1.value.addEventListener("click", (e) =>
-        moveHandler(e.clientX, e.clientY)
-      );
-      c3.value.addEventListener("click", (e) =>
-        moveHandler(e.clientX, e.clientY)
+      const clickHandler = (e) => {
+        moveHandler(e.clientX, e.clientY);
+      };
+      c1.value.addEventListener("click", clickHandler);
+      c3.value.addEventListener("click", clickHandler);
+      svg.value.addEventListener("touchstart", (e) =>
+        clickHandler(e.touches[0])
       );
       setTheta(Math.PI / 2 - props.process * Math.PI * 2);
       c2.value.addEventListener("mousedown", (e) => {
