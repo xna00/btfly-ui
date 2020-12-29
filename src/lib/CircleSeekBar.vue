@@ -101,19 +101,31 @@ export default {
       c2.value.addEventListener("mousedown", (e) => {
         active = true;
       });
-      document.addEventListener("mousemove", (e) => {
-        if (!active) return;
+      const moveHandler = (x, y) => {
         const rect = svg.value.getClientRects()[0];
         const svgcx = rect.left + rect.width / 2;
         const svgcy = rect.top + rect.height / 2;
-        const deltay = svgcy - e.y;
-        const deltax = e.x - svgcx;
-        let theta = Math.atan(deltay / deltax);
-        if (deltax < 0) {
+        const deltaX = x - svgcx;
+        const deltaY = svgcy - y;
+        let theta = Math.atan(deltaY / deltaX);
+        if (deltaX < 0) {
           theta -= Math.PI;
         }
         setTheta(theta);
+      };
+      document.addEventListener("mousemove", (e) => {
+        if (!active) return;
+        moveHandler(e.clientX, e.clientY);
       });
+      c2.value.addEventListener("touchstart", () => console.log("s"), {
+        passive: true,
+      });
+
+      c2.value.addEventListener(
+        "touchmove",
+        (e) => moveHandler(e.touches[0].clientX, e.touches[0].clientY),
+        { passive: true }
+      );
       document.addEventListener("mouseup", () => {
         active && (active = false);
       });
