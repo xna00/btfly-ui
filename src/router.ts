@@ -6,6 +6,7 @@ import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 import Markdown from './components/Markdown.vue'
 import CheckboxDemo from './components/CheckboxDemo.vue'
+import SeekBarDemo from './components/SeekBarDemo.vue'
 
 import intro from './markdown/intro.md'
 import install from './markdown/install.md'
@@ -37,7 +38,8 @@ export const router = createRouter({
                 { path: 'button', component: ButtonDemo },
                 { path: 'dialog', component: DialogDemo },
                 { path: 'tabs', component: TabsDemo },
-                { path: 'checkbox', component: CheckboxDemo }
+                { path: 'checkbox', component: CheckboxDemo },
+                { path: 'seekbar', component: SeekBarDemo }
             ]
         }
     ]
