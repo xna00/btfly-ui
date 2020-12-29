@@ -9,7 +9,9 @@
     :barWidth="600"
     :indicatorRadius="5"
     indicatiorColor="green"
+    v-model:process="process"
   />
+  <div>process:{{ process }}</div>
 </template>
 <script lang="ts">
 import LinearSeekBar from "../../lib/LinearSeekBar.vue";

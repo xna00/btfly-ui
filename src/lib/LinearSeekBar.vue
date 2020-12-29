@@ -66,10 +66,13 @@ export default {
             (left = bar.value.getClientRects()[0].width);
           indicator.value.style.left = left + "px";
           processElement.value.style.width = left + "px";
+          context.emit(
+            "update:process",
+            parseFloat((left / bar.value.getClientRects()[0].width).toFixed(3))
+          );
         }
       });
       document.addEventListener("mouseup", (e) => {
-        console.log("up");
         active === true && (active = false);
       });
       bar.value.addEventListener("click", (e) => {
@@ -77,6 +80,15 @@ export default {
           e.x - bar.value.getClientRects()[0].left + "px";
         processElement.value.style.width =
           e.x - bar.value.getClientRects()[0].left + "px";
+        context.emit(
+          "update:process",
+          parseFloat(
+            (
+              (e.x - bar.value.getClientRects()[0].left) /
+              bar.value.getClientRects()[0].width
+            ).toFixed(3)
+          )
+        );
       });
     });
     return { bar, indicator, processElement };
