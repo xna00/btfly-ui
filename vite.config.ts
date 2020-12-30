@@ -1,13 +1,19 @@
+import { path } from 'path';
 // @ts-nocheck
 
 import { md } from "./plugins/md";
 import fs from 'fs'
+import path from 'path';
 import { baseParse } from '@vue/compiler-core'
 
 export default {
     base: './',
     assetsDir: 'assets',
     plugins: [md()],
+    alias: {
+        '/@lib/': path.resolve(__dirname, 'src/lib'),
+        '/@demos/': path.resolve(__dirname, 'src/demos'),
+    },
     vueCustomBlockTransforms: {
         demo: (options) => {
             const { code, path } = options
