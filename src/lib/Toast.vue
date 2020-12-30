@@ -53,6 +53,7 @@ export default {
   position: fixed;
   bottom: 80px;
   left: 50%;
+  transform: translateX(-50%);
   padding: 8px;
   background: rgba(87, 83, 83, 0.3);
   border-radius: 8px;
