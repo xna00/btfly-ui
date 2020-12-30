@@ -13,11 +13,12 @@ export const openDialog = (options) => {
                 'onUpdate:visible': (newVisible) => {
                     if (newVisible === false) {
                         app.unmount(div)
+                        div.remove()
                     }
                 },
                 ok,
                 cancel
-            }, { title, content})
+            }, { title: () => title, content: () => content })
         }
     })
     app.mount(div)
