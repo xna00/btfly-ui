@@ -1,8 +1,8 @@
 <demo>
-1234
+一个Checkbox
 </demo>
 <template>
-  <Checkbox v-model:checked="checked">点我</Checkbox>
+  <Checkbox v-model="checked">点我</Checkbox>
   <br />
   checked:{{ checked }}
 </template>
