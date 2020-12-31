@@ -63,8 +63,8 @@ export default {
         link("/doc/dialog", "Dialog 组件"),
         link("/doc/toast", "Toast 组件"),
         link("/doc/tabs", "Tabs 组件"),
-        // link('/doc/checkbox', 'Checkbox 组件'),
         link("/doc/seekbar", "SeekBar 组件"),
+        link('/doc/checkbox', 'Checkbox 组件'),
       ],
     });
     const prev = ref(null);
