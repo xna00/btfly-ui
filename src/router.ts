@@ -8,6 +8,7 @@ import TabsDemo from './components/TabsDemo.vue'
 import Markdown from './components/Markdown.vue'
 import CheckboxDemo from './components/CheckboxDemo.vue'
 import SeekBarDemo from './components/SeekBarDemo.vue'
+import RadioDemo from './components/RadioDemo.vue'
 
 import intro from './markdown/intro.md'
 import install from './markdown/install.md'
@@ -41,7 +42,8 @@ export const router = createRouter({
                 { path: 'toast', component: ToastDemo },
                 { path: 'tabs', component: TabsDemo },
                 { path: 'checkbox', component: CheckboxDemo },
-                { path: 'seekbar', component: SeekBarDemo }
+                { path: 'seekbar', component: SeekBarDemo },
+                { path: 'radio', component: RadioDemo }
             ]
         }
     ]
