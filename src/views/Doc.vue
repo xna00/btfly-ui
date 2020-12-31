@@ -81,6 +81,7 @@ export default {
         );
         prev.value = list[index - 1];
         next.value = list[index + 1];
+        window.scroll(0, 0);
       });
     });
     return { menuVisible, menuList, prev, next };
