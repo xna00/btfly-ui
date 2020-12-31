@@ -31,17 +31,16 @@ export default {
     display: none;
   }
   input[type="checkbox"] + i {
-    transition: all 0.3s;
-    font: normal normal normal 16px/1 "Material Design Icons";
-    font-family: "Material Design Icons";
-    font-size: inherit;
+    font: normal normal normal 26px/1 "Material Design Icons";
   }
   input[type="checkbox"] + i::before {
+    transition: all 0.3s;
     content: "\F0131";
     color: grey;
   }
 
   input[type="checkbox"]:checked + i::before {
+    transition: all 0.3s;
     content: "\F0132";
     color: red;
   }
