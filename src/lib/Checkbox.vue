@@ -24,7 +24,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import url("https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css");
 .btfly-checkbox {
   cursor: pointer;
   input[type="checkbox"] {
