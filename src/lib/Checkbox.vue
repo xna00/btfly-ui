@@ -1,24 +1,25 @@
 <template>
   <label class="btfly-checkbox">
-    <input type="checkbox" @change="onChange" :checked="checked" />
+    <input type="checkbox" v-model="checked" v-bind="$attrs" />
     <i />
     <slot />
   </label>
 </template>
 <script lang="ts">
+import { computed } from "vue";
 export default {
   props: {
-    checked: {
-      type: Boolean,
-      default: true,
-    },
+    modelValue: {},
   },
-  setup(props, context) {
-    const onChange = (event) => {
-      console.log();
-      context.emit("update:checked", event.target.checked);
-    };
-    return { onChange };
+  computed: {
+    checked: {
+      get() {
+        return this.modelValue;
+      },
+      set(newValue) {
+        this.$emit("update:modelValue", newValue);
+      },
+    },
   },
 };
 </script>
