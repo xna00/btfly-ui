@@ -10,9 +10,9 @@
 
       <div class="right">
         <h1>蝴蝶UI</h1>
-        <p>一个朴素的UI</p>
+        <p>一个简单易用的UI</p>
         <div class="actions">
-          <a href=""><button>Github</button></a>
+          <a href="https://github.com/xna00/btfly-ui" target="_blank"><button>Github</button></a>
           <router-link to="/doc"><button>开始</button></router-link>
         </div>
       </div>
